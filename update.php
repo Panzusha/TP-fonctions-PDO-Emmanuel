@@ -23,9 +23,9 @@ $post = $query->fetch();
 <body>
     <form action="" method="post" style="display: inline-flex; flex-direction: column">
         <label for="title">Titre de l'article</label>
-        <input type="text" name="title" id="title" value="<?= $post['title'] ?>">
+        <input type="text" name="title" id="title" value="<?= htmlspecialchars($post['title']) ?>">
         <label for="body">Contenu de l'article</label>
-        <textarea name="body" id="body" cols="30" rows="10"><?= $post['body'] ?></textarea>
+        <textarea name="body" id="body" cols="30" rows="10"><?= htmlspecialchars($post['body']) ?></textarea>
         <input type="submit" value="Publier">
     </form>
 </body>

@@ -57,18 +57,16 @@ function getPostsByCategory(int $id, PDO $pdo): array
     // Vérification si tableau vide ou pas
     $rowCount = $query->rowCount();
 
-    if ($rowCount > 0) { 
-        return $query->fetchAll(PDO::FETCH_ASSOC);
-    } else {
-        return []; // Retourne un tableau vide
-    }
+    
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+    
 }
 
 function createPost(PDO $pdo): bool
 {
 // Création d'un article
 // Si mon formulaire a été soumis 
-if (! empty($_POST)) {
+if (! empty($_POST)) 
     // validation du formulaire
 
     $query = $pdo->prepare('INSERT INTO posts (title, body, excerpt) VALUES (:title, :body, :excerpt)');
@@ -77,7 +75,7 @@ if (! empty($_POST)) {
     $query->bindValue('excerpt', substr($_POST['body'], 0, 150), PDO::PARAM_STR);
     $query->execute();
 
-}
+
 return false;
 }
 

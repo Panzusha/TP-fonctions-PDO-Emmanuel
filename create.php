@@ -6,6 +6,10 @@ $pdo = getPDO('mysql:host=localhost;dbname=blog', 'root', '');
 
 $status = createPost($pdo);
 
+if (! empty($_POST)) {
+    createPost($pdo);
+}
+
 ?>
 
 <!DOCTYPE html>
